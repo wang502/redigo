@@ -24,6 +24,7 @@ import (
 	"strconv"
 	"sync"
 	"time"
+	"log"
 
 	"github.com/garyburd/redigo/internal"
 )
@@ -176,6 +177,7 @@ func NewPool(newFn func() (Conn, error), maxIdle int) *Pool {
 func (p *Pool) Get() Conn {
 	c, err := p.get()
 	if err != nil {
+		log.Println("errorConnection is returned")
 		return errorConnection{err}
 	}
 	return &pooledConnection{p: p, c: c}
