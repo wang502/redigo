@@ -26,7 +26,7 @@ import (
 	"time"
 	"log"
 
-	"github.com/wang502/redigo/internal"
+	"github.com/garyburd/redigo/internal"
 )
 
 var nowFunc = time.Now // for testing
